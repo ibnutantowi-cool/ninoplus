@@ -1,26 +1,112 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  /* Sleek Scrollbar for widgets */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+  }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Stunning Dark Map Filter for Standard OSM Tiles */
+  .dark-map-tiles {
+    filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom Leaflet Marker Animations */
+.pulse-icon-red {
+  background: #EF4444 !important;
+  border-radius: 50% !important;
+  box-shadow: 0 0 0 rgba(239, 68, 68, 0.4);
+  animation: pulse-red 1.5s infinite;
+}
+
+.pulse-icon-orange {
+  background: #F97316 !important;
+  border-radius: 50% !important;
+  box-shadow: 0 0 0 rgba(249, 115, 22, 0.4);
+  animation: pulse-orange 2s infinite;
+}
+
+@keyframes pulse-red {
+  0% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(239, 68, 68, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+@keyframes pulse-orange {
+  0% {
+    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(249, 115, 22, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
+  }
+}
+
+/* Volcano Icon */
+.volcano-icon {
+  width: 0 !important; 
+  height: 0 !important; 
+  border-left: 10px solid transparent !important;
+  border-right: 10px solid transparent !important;
+  border-bottom: 20px solid #EF4444 !important;
+  background: transparent !important;
+  position: relative;
+  animation: explode-pulse 1s infinite alternate;
+}
+
+.volcano-icon-siaga {
+  border-bottom-color: #F97316 !important;
+  animation: explode-pulse-siaga 1s infinite alternate;
+}
+
+.volcano-legend {
+  width: 0; 
+  height: 0; 
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 12px solid #EF4444;
+  filter: drop-shadow(0 0 4px rgba(239, 68, 68, 0.8));
+}
+
+.volcano-legend-siaga {
+  border-bottom-color: #F97316;
+  filter: drop-shadow(0 0 4px rgba(249, 115, 22, 0.8));
+}
+
+@keyframes explode-pulse {
+  from { transform: scale(1); filter: drop-shadow(0 0 2px rgba(239, 68, 68, 0.5)); }
+  to { transform: scale(1.3); filter: drop-shadow(0 0 10px rgba(239, 68, 68, 1)); }
+}
+
+@keyframes explode-pulse-siaga {
+  from { transform: scale(1); filter: drop-shadow(0 0 2px rgba(249, 115, 22, 0.5)); }
+  to { transform: scale(1.2); filter: drop-shadow(0 0 8px rgba(249, 115, 22, 1)); }
 }

@@ -1,0 +1,34 @@
+{
+  "news": [
+    {
+      "id": "1",
+      "title": "Peresmian Pusat Kendali Bencana Nino Plus",
+      "content": "Nino Plus secara resmi diperkenalkan sebagai inovasi teknologi karya anak bangsa yang didukung penuh oleh CSR PIK2.",
+      "category": "Edukasi",
+      "status": "Publish",
+      "imageUrl": null,
+      "createdAt": "2026-09-09T13:20:43.519Z"
+    },
+    {
+      "id": "wrkqt1d91",
+      "title": "TEST 123",
+      "content": "Kemenangan",
+      "category": "Berita",
+      "status": "Publish",
+      "imageUrl": "/uploads/1788960170291.jpeg",
+      "createdAt": "2026-09-09T13:22:50.295Z"
+    },
+    {
+      "id": "e0ypddcne",
+      "title": "UMKM ",
+      "content": "Umkm bagian dari ekonomi",
+      "category": "Berita",
+      "status": "Publish",
+      "imageUrl": "/uploads/1788960685747.png",
+      "createdAt": "2026-09-09T13:31:25.751Z"
+    }
+  ],
+  "settings": {
+    "youtubeId": "VFNEHVIlP90"
+  }
+}

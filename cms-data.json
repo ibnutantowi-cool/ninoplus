@@ -1,0 +1,23 @@
+{
+  "news": [
+    {
+      "id": "1",
+      "title": "Peresmian Pusat Kendali Bencana Nino Plus",
+      "content": "Nino Plus secara resmi diperkenalkan sebagai inovasi teknologi karya anak bangsa yang didukung penuh oleh CSR PIK2.",
+      "category": "Edukasi",
+      "status": "Publish",
+      "createdAt": "2026-09-08T22:38:02.912Z"
+    },
+    {
+      "id": "bmej4d9w6",
+      "createdAt": "2026-09-08T22:40:03.315Z",
+      "title": "Clean Drinking Water",
+      "category": "El Niño",
+      "content": "Ini Program Baru CSR PIK2",
+      "status": "Publish"
+    }
+  ],
+  "settings": {
+    "youtubeId": "VFNEHVIlP90"
+  }
+}
