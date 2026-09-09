@@ -23,19 +23,19 @@ export default function Header() {
               </span>
             </div>
             
-            {/* Logo Slots (Hidden on very small screens, visible on sm and up) */}
-            <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-slate-50 rounded-full border border-slate-200 transition-colors shrink-0">
-              <div className="h-8 w-8 bg-white border border-slate-200 rounded-full flex items-center justify-center shrink-0 shadow-sm overflow-hidden p-0.5 relative group">
-                <img src="/logos/ninologo.png" alt="NINO" className="w-full h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[8px] font-bold text-slate-700">BMKG</span>'; }} />
+            {/* Logo Slots (Visible on all screens, responsive size) */}
+            <div className="flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1 sm:py-1.5 bg-slate-50 rounded-full border border-slate-200 transition-colors shrink-0 ml-1 sm:ml-0">
+              <div className="h-5 w-5 sm:h-8 sm:w-8 bg-white border border-slate-200 rounded-full flex items-center justify-center shrink-0 shadow-sm overflow-hidden p-0.5 relative group">
+                <img src="/logos/ninologo.png" alt="NINO" className="w-full h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[6px] sm:text-[8px] font-bold text-slate-700">NINO</span>'; }} />
               </div>
-              <div className="h-8 w-8 bg-white border border-slate-200 rounded-full flex items-center justify-center shrink-0 shadow-sm overflow-hidden p-0.5 relative group">
-                <img src="/logos/asg.png" alt="PVMBG" className="w-full h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[8px] font-bold text-slate-700">PVMBG</span>'; }} />
+              <div className="h-5 w-5 sm:h-8 sm:w-8 bg-white border border-slate-200 rounded-full flex items-center justify-center shrink-0 shadow-sm overflow-hidden p-0.5 relative group">
+                <img src="/logos/asg.png" alt="ASG" className="w-full h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[6px] sm:text-[8px] font-bold text-slate-700">ASG</span>'; }} />
               </div>
-              <div className="h-8 w-14 bg-white border border-slate-200 rounded-full flex items-center justify-center shrink-0 shadow-sm overflow-hidden p-1 relative group">
-                <img src="/logos/csrpik2.png" alt="PIK2" className="w-full h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[9px] font-bold text-slate-700">PIK2</span>'; }} />
+              <div className="h-5 w-8 sm:h-8 sm:w-14 bg-white border border-slate-200 rounded-full flex items-center justify-center shrink-0 shadow-sm overflow-hidden p-0.5 sm:p-1 relative group">
+                <img src="/logos/csrpik2.png" alt="CSR PIK2" className="w-full h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[7px] sm:text-[9px] font-bold text-slate-700">PIK2</span>'; }} />
               </div>
-              <div className="h-8 w-8 bg-white border border-slate-200 rounded-full flex items-center justify-center shrink-0 shadow-sm overflow-hidden p-0.5 relative group">
-                <img src="/logos/cbd.png" alt="BNPB" className="w-full h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[8px] font-bold text-slate-700">BNPB</span>'; }} />
+              <div className="h-5 w-5 sm:h-8 sm:w-8 bg-white border border-slate-200 rounded-full flex items-center justify-center shrink-0 shadow-sm overflow-hidden p-0.5 relative group">
+                <img src="/logos/cbd.png" alt="CBD" className="w-full h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[6px] sm:text-[8px] font-bold text-slate-700">CBD</span>'; }} />
               </div>
             </div>
           </div>
@@ -54,14 +54,14 @@ export default function Header() {
             <Link href="/tentang" className="text-slate-500 font-medium hover:text-slate-800 transition-colors whitespace-nowrap">
               Tentang Program
             </Link>
-            <a href="https://ninoplus.online" target="_blank" rel="noopener noreferrer" className="bg-cyan-50 text-[#7367F0] hover:bg-cyan-100 border border-cyan-200 px-5 py-2 rounded-full transition-colors font-semibold text-sm whitespace-nowrap">
+            <a href="https://ninoplus.online" target="_blank" rel="noopener noreferrer" className="bg-[#7367F0]/10 text-[#7367F0] hover:bg-cyan-100 border border-[#7367F0] px-5 py-2 rounded-full transition-colors font-semibold text-sm whitespace-nowrap">
               Aplikasi
             </a>
           </nav>
 
           {/* Mobile Menu Toggle */}
           <button 
-            className="lg:hidden p-2 text-slate-600 hover:text-[#7367F0] transition-colors shrink-0"
+            className="lg:hidden p-1 text-slate-600 hover:text-[#7367F0] transition-colors shrink-0 ml-auto"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
@@ -75,23 +75,6 @@ export default function Header() {
             <Link href="/dashboard" className="text-slate-700 font-semibold text-lg hover:text-[#7367F0] px-2" onClick={() => setIsMenuOpen(false)}>Dashboard</Link>
             <Link href="/peta-tematik" className="text-slate-600 font-medium text-lg hover:text-[#7367F0] px-2" onClick={() => setIsMenuOpen(false)}>Peta Tematik</Link>
             <Link href="/tentang" className="text-slate-600 font-medium text-lg hover:text-[#7367F0] px-2" onClick={() => setIsMenuOpen(false)}>Tentang Program</Link>
-            
-            {/* Logo Slots for Mobile (Since hidden in header) */}
-            <div className="flex sm:hidden items-center gap-3 pt-4 px-2">
-              <span className="text-xs text-slate-500 font-bold uppercase tracking-wider">Mitra Resmi:</span>
-              <div className="h-10 w-10 bg-white border border-slate-200 rounded-full flex items-center justify-center shrink-0 shadow-sm overflow-hidden p-1 relative group">
-                <img src="/logos/bmkg.png" alt="BMKG" className="w-full h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[9px] font-bold text-slate-700">BMKG</span>'; }} />
-              </div>
-              <div className="h-10 w-10 bg-white border border-slate-200 rounded-full flex items-center justify-center shrink-0 shadow-sm overflow-hidden p-1 relative group">
-                <img src="/logos/pvmbg.png" alt="PVMBG" className="w-full h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[9px] font-bold text-slate-700">PVMBG</span>'; }} />
-              </div>
-              <div className="h-10 w-16 bg-white border border-slate-200 rounded-full flex items-center justify-center shrink-0 shadow-sm overflow-hidden p-1.5 relative group">
-                <img src="/logos/pik2.png" alt="PIK2" className="w-full h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[10px] font-bold text-slate-700">PIK2</span>'; }} />
-              </div>
-              <div className="h-10 w-10 bg-white border border-slate-200 rounded-full flex items-center justify-center shrink-0 shadow-sm overflow-hidden p-1 relative group">
-                <img src="/logos/bnpb.png" alt="BNPB" className="w-full h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[9px] font-bold text-slate-700">BNPB</span>'; }} />
-              </div>
-            </div>
 
             <a href="https://ninoplus.online" target="_blank" rel="noopener noreferrer" className="bg-cyan-50 text-[#7367F0] hover:bg-cyan-100 border border-cyan-200 px-4 py-3 rounded-xl transition-colors font-bold text-base text-center mt-4 mx-2" onClick={() => setIsMenuOpen(false)}>
               Aplikasi
