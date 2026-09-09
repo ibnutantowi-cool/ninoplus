@@ -42,7 +42,7 @@ export default async function TentangProgram() {
             <div className="lg:col-span-2">
               <h2 className="text-xl font-extrabold mb-6 text-slate-900 border-b-2 border-[#7367F0] pb-2 inline-block">Sorotan Blog</h2>
               <div className="space-y-4">
-                {news.length > 0 ? news.map((item) => (
+                {news.length > 0 ? news.map((item: any) => (
                   <div key={item.id} className="group relative bg-white rounded-xl shadow-sm border border-slate-200 p-3 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col h-full">
                     {item.imageUrl && (
                       <div className="w-full h-32 mb-3 rounded-lg overflow-hidden bg-slate-100 border border-slate-100 relative shrink-0 flex items-center justify-center p-1">
