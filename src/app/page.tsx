@@ -52,19 +52,13 @@ export default async function LandingPage() {
             <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4 leading-tight max-w-4xl mx-auto">
               Monitoring Sarana Mitigasi Kekeringan
             </h2>
-            <h3 className="text-xl md:text-2xl font-bold text-cyan-400 mb-4">
-              Aplikasi Nino+
-            </h3>
-            <p className="text-slate-400 max-w-3xl mx-auto text-lg leading-relaxed mb-4">
-              Ini merupakan aplikasi untuk request program CWS / CDWS dan Log Nelayan.
-            </p>
             <p className="text-slate-400 max-w-3xl mx-auto text-lg leading-relaxed">
               Sistem pelacakan progres realisasi fasilitas air komunal secara berkala untuk masyarakat pesisir, mencakup:
             </p>
           </div>
 
-          {/* Info Grid (3 Features) */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left mb-20">
+          {/* Info Grid (4 Features) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-left mb-20">
             
             {/* Card 1 */}
             <div className="bg-[#0B192C]/80 backdrop-blur-md p-8 rounded-3xl border border-white/5 hover:border-[#7367F0]/40 hover:bg-[#0f2442] hover:shadow-[0_10px_30px_rgba(115,103,240,0.15)] transition-all duration-300 group flex flex-col h-full relative overflow-hidden">
@@ -104,6 +98,24 @@ export default async function LandingPage() {
                 Infrastruktur penyimpanan dan penampungan air strategis yang disebar merata di titik-titik krusial guna menjamin pemerataan distribusi.
               </p>
             </div>
+
+            {/* Card 4 */}
+            <div className="bg-[#0B192C]/80 backdrop-blur-md p-8 rounded-3xl border border-white/5 hover:border-emerald-500/40 hover:bg-[#0f2442] hover:shadow-[0_10px_30px_rgba(16,185,129,0.15)] transition-all duration-300 group flex flex-col h-full relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-400/5 rounded-bl-full -z-10 group-hover:scale-110 transition-transform"></div>
+              <div className="w-16 h-16 bg-emerald-500/10 rounded-2xl flex items-center justify-center text-emerald-400 mb-6 group-hover:-translate-y-2 transition-transform duration-300 border border-emerald-500/20">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg>
+              </div>
+              <h3 className="text-2xl font-extrabold text-white mb-2">Aplikasi</h3>
+              <div className="text-emerald-400 font-semibold mb-4 text-sm tracking-wide uppercase">Nino+</div>
+              <p className="text-slate-400 leading-relaxed text-sm mt-auto">
+                Ini merupakan aplikasi untuk request program CWS / CDWS dan Log Nelayan.
+                <br /><br />
+                <a href="https://ninoplus.online" target="_blank" rel="noopener noreferrer" className="text-emerald-400 font-bold hover:text-emerald-300 transition-colors inline-flex items-center gap-1">
+                  Silahkan Klik <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+              </p>
+            </div>
+
           </div>
 
           {/* News / Company Profile Preview Section */}
