@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 flex flex-col items-center text-center gap-6 relative z-10">
         <div className="flex items-center gap-4 sm:gap-6 shrink-0 hover:shadow-sm transition-all bg-white/5 px-6 py-3 rounded-xl border border-white/10">
           <div className="h-8 sm:h-12 flex items-center justify-center shrink-0 relative group">
-            <img src="/logos/ninologo.png" alt="NINO" className="h-full w-auto object-contain brightness-90 hover:brightness-110 transition-all" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[10px] font-bold text-slate-400">NINO</span>'; }} />
+            <img src="/logos/logo1.png" alt="NINO" className="h-full w-auto object-contain brightness-90 hover:brightness-110 transition-all" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[10px] font-bold text-slate-400">NINO</span>'; }} />
           </div>
           <div className="h-8 sm:h-12 flex items-center justify-center shrink-0 relative group">
             <img src="/logos/asg.png" alt="ASG" className="h-full w-auto object-contain brightness-90 hover:brightness-110 transition-all" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[10px] font-bold text-slate-400">ASG</span>'; }} />
@@ -18,7 +18,7 @@ export default function Footer() {
             <img src="/logos/cbd.png" alt="CBD" className="h-full w-auto object-contain brightness-90 hover:brightness-110 transition-all" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[10px] font-bold text-slate-400">CBD</span>'; }} />
           </div>
           <div className="h-8 sm:h-12 flex items-center justify-center shrink-0 relative group">
-            <img src="/logos/logo5.png" alt="Logo 5" className="h-full w-auto object-contain brightness-90 hover:brightness-110 transition-all" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[10px] font-bold text-slate-400">LOGO 5</span>'; }} />
+            <img src="/logos/logonino.png" alt="Logo 5" className="h-full w-auto object-contain brightness-90 hover:brightness-110 transition-all" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[10px] font-bold text-slate-400">LOGO 5</span>'; }} />
           </div>
         </div>
         

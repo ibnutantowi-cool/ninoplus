@@ -38,7 +38,7 @@ export default function Header() {
                 <img src="/logos/cbd.png" alt="CBD" className="h-full w-auto object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[8px] sm:text-[10px] font-bold text-slate-700">CBD</span>'; }} />
               </div>
               <div className="h-6 sm:h-10 flex items-center justify-center shrink-0 relative group">
-                <img src="/logos/ninologo.png" alt="nino" className="h-full w-auto object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[8px] sm:text-[10px] font-bold text-slate-700">LOGO 5</span>'; }} />
+                <img src="/logos/logonino.png" alt="NINO" className="h-full w-auto object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[8px] sm:text-[10px] font-bold text-slate-700">LOGO 5</span>'; }} />
               </div>
             </div>
           </div>
