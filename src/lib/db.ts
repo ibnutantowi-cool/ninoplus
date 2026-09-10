@@ -42,19 +42,26 @@ async function getPool() {
   
   if (!pool) {
     try {
-      const connection = await mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: '',
-      });
-      await connection.query('CREATE DATABASE IF NOT EXISTS ninoplus');
-      await connection.end();
+      const host = process.env.DB_HOST || 'localhost';
+      const user = process.env.DB_USER || 'root';
+      const password = process.env.DB_PASSWORD || '';
+      const database = process.env.DB_NAME || 'ninoplus';
+      const port = process.env.DB_PORT ? parseInt(process.env.DB_PORT) : 3306;
+
+      // On Vercel or production, assume DB exists. 
+      // Locally, try to create it.
+      if (host === 'localhost') {
+        const connection = await mysql.createConnection({ host, user, password, port });
+        await connection.query(`CREATE DATABASE IF NOT EXISTS \`${database}\``);
+        await connection.end();
+      }
 
       pool = mysql.createPool({
-        host: 'localhost',
-        user: 'root',
-        password: '',
-        database: 'ninoplus',
+        host,
+        user,
+        password,
+        database,
+        port,
         waitForConnections: true,
         connectionLimit: 10,
         queueLimit: 0
@@ -84,7 +91,8 @@ async function getPool() {
         await pool.query('INSERT INTO settings (id, youtubeId) VALUES ("1", "dQw4w9WgXcQ")');
       }
     } catch (error) {
-      console.warn("MySQL Connection Failed. Falling back to JSON File.");
+      console.error("MySQL Connection Failed:", error);
+      console.warn("Falling back to JSON File.");
       useJsonFallback = true;
       return null;
     }
