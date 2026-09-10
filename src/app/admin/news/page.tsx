@@ -213,7 +213,7 @@ export default function AdminNewsCMS() {
                     </div>
                   )}
                   <h3 className="font-bold text-sm text-[#0B192C] leading-snug pr-6">{item.title}</h3>
-                  <div className="text-xs text-slate-500 mt-2 font-medium">
+                  <div suppressHydrationWarning className="text-xs text-slate-500 mt-2 font-medium">
                     {new Date(item.createdAt).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}
                   </div>
                   <button 

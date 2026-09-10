@@ -52,7 +52,7 @@ export default async function TentangProgram() {
                     <Link href={`/berita/${item.id}`} className="text-slate-800 font-extrabold text-sm hover:text-[#7367F0] block leading-snug transition-colors mb-2">
                       {item.title}
                     </Link>
-                    <div className="text-[10px] text-[#7367F0] font-bold tracking-widest uppercase mt-auto">
+                    <div suppressHydrationWarning className="text-[10px] text-[#7367F0] font-bold tracking-widest uppercase mt-auto">
                       {new Date(item.createdAt).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })}
                     </div>
                   </div>
