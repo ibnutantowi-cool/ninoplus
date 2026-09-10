@@ -18,6 +18,17 @@ export async function addNewsAction(formData: FormData) {
   revalidatePath('/admin/news');
 }
 
+export async function editNewsAction(id: string, formData: FormData) {
+  const title = formData.get("title") as string;
+  const content = formData.get("content") as string;
+  const imageUrl = formData.get("imageUrl") as string;
+
+  await db.updateNews(id, { title, content, imageUrl });
+  
+  revalidatePath('/tentang');
+  revalidatePath('/admin/news');
+}
+
 export async function deleteNewsAction(id: string) {
   await db.deleteNews(id);
   revalidatePath('/tentang');

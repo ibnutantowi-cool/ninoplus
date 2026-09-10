@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { PlusCircle, Save, Trash2, Video, ImageIcon } from "lucide-react";
-import { addNewsAction, deleteNewsAction, updateYoutubeIdAction, getAdminData } from "./actions";
+import { PlusCircle, Save, Trash2, Video, ImageIcon, Edit } from "lucide-react";
+import { addNewsAction, deleteNewsAction, updateYoutubeIdAction, getAdminData, editNewsAction } from "./actions";
 
 export default function AdminNewsCMS() {
   const [formData, setFormData] = useState({
@@ -12,6 +12,7 @@ export default function AdminNewsCMS() {
     status: "Publish",
     imageUrl: "",
   });
+  const [editingId, setEditingId] = useState<string | null>(null);
   const [youtubeLink, setYoutubeLink] = useState("");
   const [newsList, setNewsList] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -50,12 +51,34 @@ export default function AdminNewsCMS() {
     data.append("imageUrl", formData.imageUrl);
 
     // Call server action
-    await addNewsAction(data);
+    if (editingId) {
+      await editNewsAction(editingId, data);
+    } else {
+      await addNewsAction(data);
+    }
     
     // Reset
     setFormData({ title: "", category: "Berita", content: "", status: "Publish", imageUrl: "" });
+    setEditingId(null);
     loadData();
-    alert("Berita berhasil disimpan!");
+    alert(editingId ? "Berita berhasil diperbarui!" : "Berita berhasil disimpan!");
+  };
+
+  const handleEditNews = (item: any) => {
+    setEditingId(item.id);
+    setFormData({
+      title: item.title,
+      content: item.content,
+      category: item.category || "Berita",
+      status: item.status || "Publish",
+      imageUrl: item.imageUrl || "",
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleCancelEdit = () => {
+    setEditingId(null);
+    setFormData({ title: "", category: "Berita", content: "", status: "Publish", imageUrl: "" });
   };
 
   const handleDeleteNews = async (id: string) => {
@@ -132,7 +155,11 @@ export default function AdminNewsCMS() {
         <div className="lg:col-span-2 space-y-6">
           <div className="bg-white rounded-xl shadow-lg border border-slate-200 overflow-hidden p-6">
             <h2 className="font-bold text-xl mb-6 flex items-center gap-2 border-b pb-4 text-[#0B192C]">
-              <PlusCircle className="w-6 h-6 text-cyan-600"/> Tambah Berita Baru
+              {editingId ? (
+                <><Edit className="w-6 h-6 text-cyan-600"/> Edit Berita</>
+              ) : (
+                <><PlusCircle className="w-6 h-6 text-cyan-600"/> Tambah Berita Baru</>
+              )}
             </h2>
             <div className="space-y-5">
               <div>
@@ -168,9 +195,14 @@ export default function AdminNewsCMS() {
                   onChange={(e) => setFormData({...formData, content: e.target.value})}
                 ></textarea>
               </div>
-              <div className="flex justify-end pt-4 border-t border-slate-100">
+              <div className="flex justify-end gap-3 pt-4 border-t border-slate-100">
+                {editingId && (
+                  <button onClick={handleCancelEdit} className="px-6 py-2.5 bg-slate-200 text-slate-700 rounded-lg hover:bg-slate-300 text-sm font-bold flex items-center transition-colors shadow-sm">
+                    Batal
+                  </button>
+                )}
                 <button onClick={handleSaveNews} className="px-6 py-2.5 bg-[#0B192C] text-white rounded-lg hover:bg-[#0F172A] text-sm font-bold flex items-center gap-2 transition-colors shadow-md">
-                  <Save className="w-4 h-4" /> Publikasikan Berita
+                  <Save className="w-4 h-4" /> {editingId ? "Perbarui Berita" : "Publikasikan Berita"}
                 </button>
               </div>
             </div>
@@ -212,17 +244,26 @@ export default function AdminNewsCMS() {
                       <img src={item.imageUrl} alt={item.title} className="w-full h-full object-cover" />
                     </div>
                   )}
-                  <h3 className="font-bold text-sm text-[#0B192C] leading-snug pr-6">{item.title}</h3>
+                  <h3 className="font-bold text-sm text-[#0B192C] leading-snug pr-16">{item.title}</h3>
                   <div suppressHydrationWarning className="text-xs text-slate-500 mt-2 font-medium">
                     {new Date(item.createdAt).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}
                   </div>
-                  <button 
-                    onClick={() => handleDeleteNews(item.id)}
-                    className="absolute top-4 right-4 text-red-500 hover:text-red-700 bg-red-50 hover:bg-red-100 p-1.5 rounded-full transition-colors"
-                    title="Hapus Berita"
-                  >
-                    <Trash2 className="w-4 h-4" />
-                  </button>
+                  <div className="absolute top-4 right-4 flex gap-2">
+                    <button 
+                      onClick={() => handleEditNews(item)}
+                      className="text-cyan-600 hover:text-cyan-800 bg-cyan-50 hover:bg-cyan-100 p-1.5 rounded-full transition-colors"
+                      title="Edit Berita"
+                    >
+                      <Edit className="w-4 h-4" />
+                    </button>
+                    <button 
+                      onClick={() => handleDeleteNews(item.id)}
+                      className="text-red-500 hover:text-red-700 bg-red-50 hover:bg-red-100 p-1.5 rounded-full transition-colors"
+                      title="Hapus Berita"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                  </div>
                 </div>
               )) : (
                 <div className="text-sm text-slate-500 text-center py-12 flex flex-col items-center">

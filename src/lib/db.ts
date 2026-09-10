@@ -153,6 +153,22 @@ export const db = {
     }
     await p.query('DELETE FROM news WHERE id = ?', [id]);
   },
+  updateNews: async (id: string, newsItem: any) => {
+    const p = await getPool();
+    if (!p) {
+      const data = readJsonData();
+      const index = data.news.findIndex((n: any) => n.id === id);
+      if (index !== -1) {
+        data.news[index] = { ...data.news[index], ...newsItem };
+        writeJsonData(data);
+      }
+      return;
+    }
+    await p.query(
+      'UPDATE news SET title = ?, content = ?, imageUrl = ? WHERE id = ?',
+      [newsItem.title, newsItem.content, newsItem.imageUrl || null, id]
+    );
+  },
   getSettings: async () => {
     const p = await getPool();
     if (!p) {

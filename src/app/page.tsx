@@ -52,6 +52,12 @@ export default async function LandingPage() {
             <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4 leading-tight max-w-4xl mx-auto">
               Monitoring Sarana Mitigasi Kekeringan
             </h2>
+            <h3 className="text-xl md:text-2xl font-bold text-cyan-400 mb-4">
+              Aplikasi Nino+
+            </h3>
+            <p className="text-slate-400 max-w-3xl mx-auto text-lg leading-relaxed mb-4">
+              Ini merupakan aplikasi untuk request program CWS / CDWS dan Log Nelayan.
+            </p>
             <p className="text-slate-400 max-w-3xl mx-auto text-lg leading-relaxed">
               Sistem pelacakan progres realisasi fasilitas air komunal secara berkala untuk masyarakat pesisir, mencakup:
             </p>
