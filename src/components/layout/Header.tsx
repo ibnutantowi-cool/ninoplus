@@ -26,7 +26,7 @@ export default function Header() {
             {/* Logo Slots (Visible on all screens, responsive size) */}
             <div className="flex items-center gap-2 sm:gap-4 shrink-0 ml-2 sm:ml-4">
               <div className="h-6 sm:h-10 flex items-center justify-center shrink-0 relative group">
-                <img src="/logos/ninologo.png" alt="NINO" className="h-full w-auto object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[8px] sm:text-[10px] font-bold text-slate-700">NINO</span>'; }} />
+                <img src="/logos/logo1.png" alt="NINO" className="h-full w-auto object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[8px] sm:text-[10px] font-bold text-slate-700">NINO</span>'; }} />
               </div>
               <div className="h-6 sm:h-10 flex items-center justify-center shrink-0 relative group">
                 <img src="/logos/asg.png" alt="ASG" className="h-full w-auto object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[8px] sm:text-[10px] font-bold text-slate-700">ASG</span>'; }} />
@@ -38,7 +38,7 @@ export default function Header() {
                 <img src="/logos/cbd.png" alt="CBD" className="h-full w-auto object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[8px] sm:text-[10px] font-bold text-slate-700">CBD</span>'; }} />
               </div>
               <div className="h-6 sm:h-10 flex items-center justify-center shrink-0 relative group">
-                <img src="/logos/logo5.png" alt="Logo 5" className="h-full w-auto object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[8px] sm:text-[10px] font-bold text-slate-700">LOGO 5</span>'; }} />
+                <img src="/logos/ninologo.png" alt="nino" className="h-full w-auto object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-[8px] sm:text-[10px] font-bold text-slate-700">LOGO 5</span>'; }} />
               </div>
             </div>
           </div>
