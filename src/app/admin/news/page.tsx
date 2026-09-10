@@ -10,12 +10,11 @@ export default function AdminNewsCMS() {
     category: "Berita",
     content: "",
     status: "Publish",
+    imageUrl: "",
   });
-  const [file, setFile] = useState<File | null>(null);
   const [youtubeLink, setYoutubeLink] = useState("");
   const [newsList, setNewsList] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const fileInputRef = useRef<HTMLInputElement>(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loginForm, setLoginForm] = useState({ username: "", password: "" });
   
@@ -48,17 +47,13 @@ export default function AdminNewsCMS() {
     data.append("content", formData.content);
     data.append("category", formData.category);
     data.append("status", formData.status);
-    if (file) {
-      data.append("image", file);
-    }
+    data.append("imageUrl", formData.imageUrl);
 
     // Call server action
     await addNewsAction(data);
     
     // Reset
-    setFormData({ title: "", category: "Berita", content: "", status: "Publish" });
-    setFile(null);
-    if (fileInputRef.current) fileInputRef.current.value = "";
+    setFormData({ title: "", category: "Berita", content: "", status: "Publish", imageUrl: "" });
     loadData();
     alert("Berita berhasil disimpan!");
   };
@@ -152,17 +147,15 @@ export default function AdminNewsCMS() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-1">Foto Berita</label>
-                <div className="border-2 border-dashed border-slate-300 rounded-lg p-4 flex flex-col items-center justify-center text-slate-500 bg-slate-50 hover:bg-slate-100 transition-colors">
-                  <input 
-                    type="file" 
-                    accept="image/*"
-                    ref={fileInputRef}
-                    onChange={(e) => setFile(e.target.files?.[0] || null)}
-                    className="w-full text-sm"
-                  />
-                  {!file && <p className="text-xs mt-2">Pilih gambar dari komputer Anda (Opsional)</p>}
-                </div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1">Foto Berita (Link/URL)</label>
+                <input 
+                  type="text" 
+                  className="w-full border border-slate-300 rounded-lg p-3 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none" 
+                  placeholder="https://contoh.com/gambar.jpg"
+                  value={formData.imageUrl}
+                  onChange={(e) => setFormData({...formData, imageUrl: e.target.value})}
+                />
+                <p className="text-xs text-slate-500 mt-1">Karena menggunakan Vercel, silakan *upload* foto Anda ke Google Drive / Imgur / Postimages, lalu *copy-paste* link-nya ke sini.</p>
               </div>
 
               <div>

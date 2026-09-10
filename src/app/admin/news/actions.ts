@@ -10,24 +10,7 @@ export async function addNewsAction(formData: FormData) {
   const content = formData.get("content") as string;
   const category = formData.get("category") as string;
   const status = formData.get("status") as string;
-  const file = formData.get("image") as File;
-
-  let imageUrl = "";
-
-  if (file && file.size > 0) {
-    const buffer = Buffer.from(await file.arrayBuffer());
-    const ext = file.name.split(".").pop();
-    const fileName = `${Date.now()}.${ext}`;
-    const uploadDir = path.join(process.cwd(), "public/uploads");
-    
-    if (!fs.existsSync(uploadDir)) {
-      fs.mkdirSync(uploadDir, { recursive: true });
-    }
-    
-    const filePath = path.join(uploadDir, fileName);
-    fs.writeFileSync(filePath, buffer);
-    imageUrl = `/uploads/${fileName}`;
-  }
+  const imageUrl = formData.get("imageUrl") as string;
 
   await db.addNews({ title, content, category, status, imageUrl });
   
